@@ -62,9 +62,13 @@ void ProjectManager::displayMenu() {
         cout << "===========================================\n";
         cout << "[1]  Add New Project\n";
         cout << "[2]  View All Projects\n";
-        cout << "[3]  Update Project Status\n";
-        cout << "[4]  Save Projects to File\n";
-        cout << "[5]  Load Projects from File\n";
+        cout << "[3]  Edit a Project\n";
+        cout << "[4]  Delete a Project\n";
+        cout << "[5]  Update Project Status\n";
+        cout << "[6]  Archive Completed Projects\n";
+        cout << "[7]  Export Projects to CSV (Excel)\n";
+        cout << "[8]  Save Projects to File\n";
+        cout << "[9]  Load Projects from File\n";
         cout << "[0]  Exit\n";
         cout << "===========================================\n";
         cout << "Enter your choice: ";
@@ -75,11 +79,11 @@ void ProjectManager::displayMenu() {
             addProject(); break;
         case 2:
             listProjects(); break;
-        case 3:
-            updateStatus(); break;
-        case 4:
-            saveToFile(); break;
         case 5:
+            updateStatus(); break;
+        case 8:
+            saveToFile(); break;
+        case 9:
             loadFromFile(); break;
         case 0:
             cout << "Exiting program...\n"; break;
