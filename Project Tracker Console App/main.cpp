@@ -12,8 +12,9 @@
 
 using namespace std;
 
-const int MAX_PROJECTS = 50;
+const int MAX_PROJECTS = 50; // Maximum number of projects
 
+// Struct representing a cosplay project
 struct Project {
     string name;
     string startDate;
@@ -25,6 +26,7 @@ struct Project {
     string notes;
 };
 
+// Simple class to display reminder messages
 class Reminder {
 private:
     string message;
@@ -35,25 +37,27 @@ public:
     }
 };
 
+// Class that manages a list of cosplay projects
 class ProjectManager {
 private:
-    Project projects[MAX_PROJECTS];
-    int projectCount;
+    Project projects[MAX_PROJECTS]; // Array of projects
+    int projectCount; // Number of current projects
 
-    Project getProjectInput();
-    void printProjectList() const;
+    Project getProjectInput(); // Helper to gather input
+    void printProjectList() const; // Helper to print all projects
 
 public:
     ProjectManager() : projectCount(0) {}
 
-    void displayMenu();
-    void addProject();
-    void listProjects() const;
-    void updateStatus();
-    void saveToFile() const;
-    void loadFromFile();
+    void displayMenu();       // Main menu loop
+    void addProject();        // Add a new project
+    void listProjects() const;// View all projects
+    void updateStatus();      // Update a project's status
+    void saveToFile() const;  // Save all projects to a file
+    void loadFromFile();      // Load projects from a file
 };
 
+// Main program menu
 void ProjectManager::displayMenu() {
     int choice;
     do {
@@ -62,13 +66,9 @@ void ProjectManager::displayMenu() {
         cout << "===========================================\n";
         cout << "[1]  Add New Project\n";
         cout << "[2]  View All Projects\n";
-        cout << "[3]  Edit a Project\n";
-        cout << "[4]  Delete a Project\n";
-        cout << "[5]  Update Project Status\n";
-        cout << "[6]  Archive Completed Projects\n";
-        cout << "[7]  Export Projects to CSV (Excel)\n";
-        cout << "[8]  Save Projects to File\n";
-        cout << "[9]  Load Projects from File\n";
+        cout << "[3]  Update Project Status\n";
+        cout << "[4]  Save Projects to File\n";
+        cout << "[5]  Load Projects from File\n";
         cout << "[0]  Exit\n";
         cout << "===========================================\n";
         cout << "Enter your choice: ";
@@ -79,11 +79,11 @@ void ProjectManager::displayMenu() {
             addProject(); break;
         case 2:
             listProjects(); break;
-        case 5:
+        case 3:
             updateStatus(); break;
-        case 8:
+        case 4:
             saveToFile(); break;
-        case 9:
+        case 5:
             loadFromFile(); break;
         case 0:
             cout << "Exiting program...\n"; break;
@@ -93,6 +93,7 @@ void ProjectManager::displayMenu() {
     } while (choice != 0);
 }
 
+// Gather user input for a new project
 Project ProjectManager::getProjectInput() {
     Project p;
     cin.ignore();
@@ -115,6 +116,7 @@ Project ProjectManager::getProjectInput() {
     return p;
 }
 
+// Adds a new project to the array
 void ProjectManager::addProject() {
     if (projectCount >= MAX_PROJECTS) {
         cout << "Project limit reached.\n";
@@ -126,6 +128,7 @@ void ProjectManager::addProject() {
     projectCount++;
 }
 
+// Displays all projects
 void ProjectManager::printProjectList() const {
     for (int i = 0; i < projectCount; ++i) {
         cout << "\nProject #" << (i + 1) << ":\n";
@@ -139,6 +142,7 @@ void ProjectManager::printProjectList() const {
     }
 }
 
+// Wrapper to check if list is empty
 void ProjectManager::listProjects() const {
     if (projectCount == 0) {
         cout << "No projects to show.\n";
@@ -147,6 +151,7 @@ void ProjectManager::listProjects() const {
     printProjectList();
 }
 
+// Update status of selected project
 void ProjectManager::updateStatus() {
     if (projectCount == 0) {
         cout << "No projects available.\n";
@@ -166,6 +171,7 @@ void ProjectManager::updateStatus() {
     r.show();
 }
 
+// Save all project data to a text file
 void ProjectManager::saveToFile() const {
     ofstream outFile("projects.txt");
     for (int i = 0; i < projectCount; ++i) {
@@ -182,6 +188,7 @@ void ProjectManager::saveToFile() const {
     cout << "Projects saved to projects.txt\n";
 }
 
+// Load all project data from a text file
 void ProjectManager::loadFromFile() {
     ifstream inFile("projects.txt");
     if (!inFile) {
@@ -204,6 +211,7 @@ void ProjectManager::loadFromFile() {
     cout << "Projects loaded from projects.txt\n";
 }
 
+// Entry point of the program
 int main() {
     ProjectManager manager;
     manager.displayMenu();
