@@ -1,20 +1,32 @@
-# Cosplay Project Tracker
+﻿
+---
 
-## Overview
-This C++ console app helps manage cosplay and costume build projects. You can create project entries, assign deadlines and build hours, track progress, and save/load your schedule from a file.
+## 🔒 License
 
-## Features
-- Add and track projects
-- Update status and estimated due dates
-- File-based save/load support
-- Simple reminders via class system
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license.  
+You are free to use and adapt this code for non-commercial purposes with attribution.
 
-## Concepts Used
-- Input/output (cin/cout)
-- Structs, arrays
-- Loops and control structures
-- File I/O
-- Functions and classes
+🔗 [View License](https://creativecommons.org/licenses/by-nc/4.0/)
 
-## License
-This project is licensed under the CC BY-NC 4.0 license. See the LICENSE file for more details.
+---
+
+## 📜 Changelog
+
+### Version 2.0 – Refactor & Expansion
+- Refactored into `ProjectManager` class for better structure
+- Added `startDate`, `priority`, `notes`, and `hoursCompleted`
+- Improved file save/load to include new fields
+- Upgraded to a cleaner, centered console UI
+- Separated logic into helper methods for easier maintenance
+
+---
+
+## 👤 Author
+
+**Blake Reno**  
+Student, Macomb Community College  
+Course: ITCS 2530 – C++ Programming  
+Hobbies: Cosplay building, electronics repair, 3D printing
+
+---
+
